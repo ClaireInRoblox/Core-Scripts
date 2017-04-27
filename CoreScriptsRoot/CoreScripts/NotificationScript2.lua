@@ -702,7 +702,6 @@ if tenFootBadgeNotifications then
 BadgeService.BadgeAwarded:connect(onBadgeAwarded)
 if not isTenFootInterface then
 	Players.FriendRequestEvent:connect(onFriendRequestEvent)
-	PointsService.PointsAwarded:connect(onPointsAwarded)
 	--GameSettings.Changed:connect(onGameSettingsChanged)
 	game.GraphicsQualityChangeRequest:connect(function(graphicsIncrease) --graphicsIncrease is a boolean
 		onGameSettingsChanged("SavedQualityLevel", graphicsIncrease == true and 1 or -1)
@@ -713,7 +712,6 @@ else
 
 if not isTenFootInterface then
 	Players.FriendRequestEvent:connect(onFriendRequestEvent)
-	PointsService.PointsAwarded:connect(onPointsAwarded)
 	BadgeService.BadgeAwarded:connect(onBadgeAwarded)
 	--GameSettings.Changed:connect(onGameSettingsChanged)
 	game.GraphicsQualityChangeRequest:connect(function(graphicsIncrease) --graphicsIncrease is a boolean
@@ -722,6 +720,8 @@ if not isTenFootInterface then
 end
 
 end
+
+PointsService.PointsAwarded:connect(onPointsAwarded)
 
 if disableScreenshotPopup then
 	game.ScreenshotReady:Connect(function(path)
